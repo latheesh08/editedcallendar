@@ -309,10 +309,15 @@ export default class DayGrid extends InteractiveDateComponent {
 
   getHitFootprint(hit) {
     let range = this.getCellRange(hit.row, hit.col)
-
+    var time = new UnzonedRange(range.start, range.end);
+    if(hit.row === 1){
+    time['extra'] = 'pm'
+    }else if(hit.row === 0){
+        time['extra'] = 'am'
+        }
     return new ComponentFootprint(
-      new UnzonedRange(range.start, range.end),
-      true // all-day?
+      time,
+      false // all-day?
     )
   }
 
