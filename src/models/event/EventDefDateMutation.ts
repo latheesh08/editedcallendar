@@ -92,7 +92,7 @@ export default class EventDefDateMutation {
       }
     }
     if (this.dateDelta) {
-      if (this.dateDelta.extra && (this.dateDelta.extra === 'pm' || this.dateDelta.extra === 'am' || this.dateDelta.extra === '-pm' || this.dateDelta.extra === '-am')) {
+      if (this.dateDelta.extra && (this.dateDelta.extra === 'pm' || this.dateDelta.extra === 'am' || this.dateDelta.extra === '-pm' || this.dateDelta.extra === '-am')&& (calendar.view.name == "timelineDay" || calendar.view.name == "timelineWeek" || calendar.view.name == "agendaDay" || calendar.view.name == "agendaWeek")) {
           shouldRezone = true;
           // start = calendar.currentDate.clone();
           var dummy = calendar.currentDate.clone().add(43200000);
